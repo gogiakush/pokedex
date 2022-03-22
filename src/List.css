@@ -1,0 +1,22 @@
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#more-poke {
+    font-family: monospace;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(240, 100, 240);
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#more-poke:hover {
+    background-color: rgb(241, 57, 241);
+}

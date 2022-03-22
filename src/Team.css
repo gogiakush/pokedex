@@ -1,0 +1,42 @@
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.team-card {
+    width: 400px;
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.member-name {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.rem-btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border: 0px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.rem-btn:hover {
+    background-color: rgb(115, 219, 115);
+}
+
+hr {
+    height: 5px;
+    background-color: rgb(255, 204, 109);
+    border: 0px;
+}
+
