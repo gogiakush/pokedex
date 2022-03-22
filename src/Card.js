@@ -37,7 +37,7 @@ class Card extends React.Component {
                         height: response.height,
                         weight: response.weight,
                         bxp: response.base_experience,
-                        typenames: response.types.map((type) => <div key={response.id + ": " + type.type.name} className="type">Type: {type.type.name.substring(0, 1).toUpperCase() + type.type.name.substring(1)}</div>),
+                        typenames: response.types.map((type) => <div key={response.id + ": " + type.type.name} className={"type type" + type.type.name}>Type: {type.type.name.substring(0, 1).toUpperCase() + type.type.name.substring(1)}</div>),
                     }
                 }
             );

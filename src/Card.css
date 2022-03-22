@@ -12,8 +12,12 @@
 
 .name, .height, .weight, .bxp, .type {
     font-size: 20px;
-    margin: 10px;
+    padding: 10px;
     font-family: monospace;
+}
+
+.type {
+    margin-bottom: 10px;
 }
 
 .name {
@@ -21,7 +25,8 @@
 }
 
 .addteam, .removeteam{
-    width: 175px;
+    width: fit-content;
+    padding: 0px 10px;
     height: 35px;
     font-family: monospace;
     font-size: 17px;
@@ -42,4 +47,76 @@
 
 .removeteam:hover {
     background-color: rgb(255, 75, 75);
+}
+
+.typefire {
+    background-color: #F08030;
+}
+
+.typebug {
+    background-color: #A8B820;
+}
+
+.typedark {
+    background-color: #705848;
+}
+
+.typedragon {
+    background-color: #7038F8;
+}
+
+.typeelectric {
+    background-color: #F8D030;
+}
+
+.typefairy {
+    background-color: #EE99AC;
+}
+
+.typefighting {
+    background-color: #C03028;
+}
+
+.typeflying {
+    background-color: #A890F0;
+}
+
+.typeghost {
+    background-color: #705898;
+}
+
+.typegrass {
+    background-color: #78C850;
+}
+
+.typeground {
+    background-color: #E0C068;
+}
+
+.typeice {
+    background-color: #98D8D8;
+}
+
+.typenormal {
+    background-color: #A8A878;
+}
+
+.typepoison {
+    background-color: #A040A0;
+}
+
+.typepsychic {
+    background-color: #F85888;
+}
+
+.typerock {
+    background-color: #B8A038;
+}
+
+.typesteel {
+    background-color: #B8B8D0;
+}
+
+.typewater {
+    background-color: #6890F0;
 }
