@@ -6,7 +6,7 @@ class Card extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {id: 0, name: "", height: 0, weight: 0, bxp: 0, btnclass: "addteam", typenames: [], teambutton: "Add to Team", teamfn: () => {addMember(this, this.state.frontdef, this.state.name, this.state.id)}};
+        this.state = {id: 0, name: "", height: 0, weight: 0, bxp: 0, btnclass: "addteam", typenames: [], added: this.props.added, teambutton: "", teamfn: () => {}};
         this.handleError = this.handleError.bind(this);
         this.refreshAdded = this.refreshAdded.bind(this);
     }
@@ -44,8 +44,16 @@ class Card extends React.Component {
         })
         .then(() => {
             setRefreshAdded(this.refreshAdded);
+            this.refreshAdded(this, this.props.added);
         })
         .catch(this.handleError)
+    }
+
+    componentWillUnmount() {
+        this.props.componentUnmountCallback(this.state);
+        this.setState = (state,callback)=>{
+            return;
+        };
     }
 
     refreshAdded(card, addStatus) {
@@ -57,6 +65,7 @@ class Card extends React.Component {
                     teamfn: () => {
                         removeMember(card, card.state.id)
                     },
+                    added: true
                 }
             });
         } else {
@@ -67,6 +76,7 @@ class Card extends React.Component {
                     teamfn: () => {
                         addMember(card, card.state.frontdef, card.state.name, card.state.id)
                     },
+                    added: false
                 }
             });
         }

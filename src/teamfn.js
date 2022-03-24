@@ -2,6 +2,7 @@ const poketeam = [];
 const pokeids = [];
 let refresh = () => {};
 let refreshAdded = () => {};
+let refreshInSearch = () => {};
 
 const addMember = (card, cardimg, cardname, cardid) => {
     if (poketeam.length === 6) {
@@ -38,4 +39,20 @@ const setRefreshAdded = (refa) => {
      refreshAdded = refa;
 }
 
-export {addMember, removeMember, setRefresh, setRefreshAdded};
+const setRefreshInSearch = (refreshfn) => {
+    refreshInSearch = refreshfn;
+}
+
+const lookupCards = () => {
+    const keyword = document.querySelector("#search-bar").value.toLowerCase();
+    if(keyword.charAt(keyword.length - 1) === ' ') {
+        document.querySelector("#search-bar").value = keyword.substring(0, keyword.length - 1);
+    } else if (keyword.length === 0) {
+        refreshInSearch(false, '');
+        console.log('opy');
+    } else {
+        refreshInSearch(true, keyword);
+    }
+}
+
+export {addMember, removeMember, setRefresh, setRefreshAdded, setRefreshInSearch, lookupCards};
