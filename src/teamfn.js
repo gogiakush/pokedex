@@ -1,3 +1,5 @@
+import { database } from './database.js';
+import { set, update, onValue, remove, ref } from 'firebase/database';
 const poketeam = [];
 const pokeids = [];
 let refresh = () => {};
@@ -18,6 +20,21 @@ const addMember = (card, cardimg, cardname, cardid) => {
             </div>
         ));
         pokeids.push(cardid);
+
+        let data = {};
+        data['poke' + cardid + '/name'] = cardname;
+        data['poke' + cardid + '/id'] = cardid;
+
+        const dataRef = ref(database, '/');
+        update(dataRef, data)
+        .then(() => {
+            console.log("Update was successful");
+        })
+        .catch((error) => {
+            console.log("Update failed");
+            console.log(error);
+        });
+
         refresh(poketeam);
         refreshAdded(card, true);
     }
@@ -27,6 +44,17 @@ const removeMember = (card, cardid) => {
     const ind = pokeids.indexOf(cardid);
     pokeids.splice(ind, 1);
     poketeam.splice(ind, 1);
+
+    const dataRef = ref(database, '/poke' + cardid);
+    remove(dataRef)
+    .then(() => {
+        console.log("Remove was successful");
+    })
+    .catch((error) => {
+        console.log("Remove failed");
+        console.log(error);
+    });
+
     refresh(poketeam);
     refreshAdded(card, false);
 }
